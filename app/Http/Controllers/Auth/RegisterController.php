@@ -6,16 +6,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class RegisterController extends Controller
 {
+    //show register page
     public function index(){
         return view('auth.register');
     }
 
+    //register a new user
     public function store(Request $request){
         //validate form info
+        //dd($request->only('email','password'));
        $this -> validate($request, [
             'name'=> 'required|max:255',
             'username' => 'required|max:255',
@@ -31,7 +36,10 @@ class RegisterController extends Controller
         'password' => Hash::make($request->password),
         ]);
        
-            
+        //sign user in
+        Auth::attempt($request->only('email','password'));
+
+
         //redirect to home page
         return redirect()->route('home');
     }
