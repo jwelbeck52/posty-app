@@ -4,11 +4,16 @@
     <div class="flex justify-center">
         <div class="w-3/12 bg-white p-6 rounded-lg">
 
-        @if(session('status'))
-                    <div class="text-white text-center mt-2 bg-red-500 p-4 rounded-lg mb-6 text-md ">
-                        <p>{{ session('status') }}</p>
-                    </div>
-                @endif
+            <div class=" mt-2 p-4 text-center rounded-lg mb-4 text-lg ">
+                <h2> Log Into Your Account</h2>
+            </div>
+
+            @if(session('status'))
+                <div class="text-white text-center mt-2 bg-yellow-500 p-4 rounded-lg mb-6 text-md ">
+                    <p>{{ session('status') }}</p>
+                </div>
+            @endif
+
             <form action="{{ route('login.store') }}" method="post">
                 
                 @csrf

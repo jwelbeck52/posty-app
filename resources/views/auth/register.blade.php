@@ -3,6 +3,11 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-4/12 bg-white p-6 rounded-lg">
+
+            <div class=" mt-2 p-4 text-center rounded-lg mb-4 text-lg ">
+                <h2> Create Your Account</h2>
+            </div>
+
             <form action="{{ route('register.store') }}" method="post">
                 <div class="mb-4">
                     <label for="name" class="sr-only">Name</label>
