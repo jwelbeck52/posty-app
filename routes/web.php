@@ -25,6 +25,8 @@ Route::post('/register', [RegisterController::class,'store'])->name('register.st
 Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login', [LoginController::class,'store'])->name('login.store');
 
+Route::post('/logout', [LogoutController::class,'logout'])->name('logout');
+
 Route::get('/posts', function () {
     return view('posts.index');
 });
