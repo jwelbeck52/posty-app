@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
+    public function __construct()
+    {   //use middleware guest to check that only unauthenticated users(guests) can view this page
+        $this->middleware(['guest']);
+    }
+
     //show register page
     public function index(){
         return view('auth.register');

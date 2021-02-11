@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {   //use middleware guest to check that only unauthenticated users(guests) can view this page
+        $this->middleware(['guest']);
+    }
+
     //show login page
     public function index()
     {
