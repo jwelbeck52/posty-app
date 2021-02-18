@@ -42,6 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //set i[ relation that a user has many posts so that we can access post info from user model]
     public function posts() {
         return $this->hasMany(Post::class);
     }
