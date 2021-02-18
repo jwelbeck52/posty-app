@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index(){
         //$posts = Post::get();
-        $posts = Post::paginate(3);
+        $posts = Post::latest()->paginate(3); //get the latest post and display only 3 per page
         //dd($posts);
 
         return view('posts.index',compact('posts'));
