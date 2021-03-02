@@ -46,6 +46,6 @@ class RegisterController extends Controller
 
 
         //redirect to home page
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 }

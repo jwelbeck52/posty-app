@@ -4,7 +4,7 @@
     <div class="flex justify-center">
         <div class="w-8/12 bg-white p-6 rounded-lg">
             <div class=" mt-2 rounded-lg mb-4 text-lg ">
-                <h2> Leave a Post!</h2>
+                <h2> Post Something!</h2>
             </div>
 
             @if(session('status'))
@@ -19,7 +19,7 @@
                 <div class="mb-4">
                     <label for="body" class="sr-only">Body</label>
                     <textarea name="body" id="body" cols="30" rows="4" placeholder="Type Something!" 
-                    class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('bdoy') border-red-400 @enderror"></textarea>
+                    class="bg-gray-100 border-2 w-full p-4 rounded-lg resize-none @error('body') border-red-400 @enderror"></textarea>
 
                     @error('body')
                     <div class="text-red-500 mt-2 text-sm ">
@@ -34,6 +34,10 @@
                     </button>
                 </div>
             </form>
+
+            <div class="rounded-lg mb-2 mt-2 text-lg ">
+                <h2>Recent Posts</h2>
+            </div>
 
             @if($posts->count())
                 <div>

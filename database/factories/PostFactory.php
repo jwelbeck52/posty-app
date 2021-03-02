@@ -20,9 +20,9 @@ class PostFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    {   //App\Models\Post::factory()->times(100)->create(['user_id' => 8]); using artisan tinker
         return [
-            //
+            'body' => $this->faker->sentence(15),
         ];
     }
 }
