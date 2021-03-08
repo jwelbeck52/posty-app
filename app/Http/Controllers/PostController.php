@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index(){
         //$posts = Post::get();
-        $posts = Post::latest()->paginate(3); //get the latest post and display only 3 per page
+        $posts = Post::with(['user','likes'])->latest()->paginate(3); //get the latest post and display only 3 per page
         //dd($posts);
 
         return view('posts.index',compact('posts'));
@@ -24,7 +24,6 @@ class PostController extends Controller
 
         //dd(auth()->id()); //get authenticated user id using auth helper . does not require importing Auth Facade
         //dd($request->user()->id); // get user id using the request
-        //dd($request->user()->id); // get user id using Auth Facade. requires importing Auth Facade
         //dd($request->user()->posts);
 
         /*
@@ -40,6 +39,14 @@ class PostController extends Controller
         /*$request->user()->posts()->create([
             'body' => $request->body,
         ]);*/
+
+        return back();
+    }
+
+    public function destroy(Post $post){
+        //dd($post);
+        //$post->likes()->delete();
+        $post->delete();
 
         return back();
     }
