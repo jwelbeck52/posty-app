@@ -37,7 +37,16 @@ class PostApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request, [
+            'body' => 'required|max:255'
+        ]);
+
+        $new_post = Post::create([
+            'user_id' => $request->user_id,
+            'body' => $request->body,
+        ]);
+
+        return $new_post;
     }
 
     /**
