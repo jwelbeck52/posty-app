@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index(){
         //$posts = Post::get();
-        $posts = Post::with(['user','likes'])->latest()->paginate(3); //get the latest post and display only 3 per page
+        $posts = Post::latest()->with(['user','likes'])->paginate(3); //get the latest post and display only 3 per page
         //dd($posts);
 
         return view('posts.index',compact('posts'));
@@ -45,7 +45,7 @@ class PostController extends Controller
 
     public function destroy(Post $post){
         //dd($post);
-        //$post->likes()->delete();
+        //$post->likes()->delete(); //because OnDelete() was not working; changed it to onDelete()
         $post->delete();
 
         return back();
